@@ -52,18 +52,19 @@ class USER
 		}				
 	}
 
-	public function audioupload($title,$iserver,$url, $hash)
+	public function dataupload($title,$iserver,$url,$hash, $checked)
 	{
 		try
 		{
 						
-			$stmt = $this->db->prepare("INSERT INTO daten(title,iserver,url, hash) 
-		                                               VALUES(:title, :iserver, :url, :hash)");
+			$stmt = $this->db->prepare("INSERT INTO daten(title,iserver,url, hash, checked) 
+		                                               VALUES(:title, :iserver, :url, :hash, :checked)");
 												  
 			$stmt->bindparam(":title", $title);
 			$stmt->bindparam(":iserver", $iserver);
 			$stmt->bindparam(":url", $url);										  
-			$stmt->bindparam(":hash", $hash);
+      $stmt->bindparam(":hash", $hash);
+      $stmt->bindparam(":checked", $checked);
 
 			$stmt->execute();	
 			

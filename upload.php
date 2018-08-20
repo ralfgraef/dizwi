@@ -59,7 +59,8 @@ include_once 'dbconfig.php';
 			$startname = $_FILES['files']['tmp_name'][$f];
 			$name = $_FILES['files']['name'][$f];
 			$title =  basename($name);
-			$zielname = "ZwischenArchiv" . $speicherordner  . basename($name);
+      $zielname = "ZwischenArchiv" . $speicherordner  . basename($name);
+      $checked = false;
 			echo $zielname;
 			if (@move_uploaded_file($startname, $zielname)) 
 			{
@@ -67,7 +68,7 @@ include_once 'dbconfig.php';
 				$hash = md5_file($zielname);
 				$url = $speicherordner;
 				$iserver = "http://www.fes.de/lnk/1rh";
-				$user->audioupload($title,$iserver,$url,$hash);
+				$user->dataupload($title,$iserver,$url,$hash,$checked);
 				$user->urlupload($url);
 
 				echo "<div id = 'anz'>";
@@ -114,14 +115,15 @@ include_once 'dbconfig.php';
 			$name = $_FILES['files']['name'][$f];
 			$title =  basename($name);
 			$zielname = "ZwischenArchiv" . $speicherordner  . basename($name);
-			
+      $checked = false;
+      
 			if (@move_uploaded_file($startname, $zielname)) 
 			{
 				
 				$hash = md5_file($zielname);
 				$url = $speicherordner;
 				$iserver = "http://www.fes.de/lnk/1rh";
-				$user->audioupload($title,$iserver,$url,$hash);
+				$user->dataupload($title,$iserver,$url,$hash,$checked);
 
 				echo "<div id = 'anz'>";
 				echo "<br>";
