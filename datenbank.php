@@ -41,6 +41,7 @@ include_once 'dbconfig.php';
 								<th>Prüfsumme</th>
 								<th>Speicherort</th>
 								<th>Ingestiert am</th>
+                <th>Bewertung</th>
 								<th>DLZA</th>
 								</tr>
 							</thead>

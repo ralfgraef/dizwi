@@ -112,8 +112,8 @@ class USER {
 				<td><?php echo $row['hash']; ?></td>
 				<td><?php echo $row['url']; ?></td>
 				<td><?php echo $row['timestamp']; ?></td>
+        <td><?php echo $row['bewertung']; ?></td>
 				<td><?php echo $row['checked']; ?></td>
-				<!-- <td><a href="<?php echo $row['tuts_link']; ?>">visit</a></td> -->
 				</tr>
 				<?php
 			}
