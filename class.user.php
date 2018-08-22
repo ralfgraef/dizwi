@@ -112,7 +112,24 @@ class USER {
 				<td><?php echo $row['hash']; ?></td>
 				<td><?php echo $row['url']; ?></td>
 				<td><?php echo $row['timestamp']; ?></td>
-        <td><?php echo $row['bewertung']; ?></td>
+        <td>
+			
+					<?php
+					$id = 'bew'.$row['id'];
+					?>
+					<label class="switch">
+						<input type="checkbox" class="my_checkbox" name="testbox" <?php echo ($row['bewertung']==1 ? 'checked' : ''); echo ' id='.$id ?> >
+						<span class="slider"></span>
+					</label>
+					
+					
+
+				<?php 
+				// if ($_POST['action'] == 'update') {
+				// 	var_dump($_POST['action']);
+				// }
+				?>
+				</td>
 				<td><?php echo $row['checked']; ?></td>
 				</tr>
 				<?php
@@ -125,7 +142,16 @@ class USER {
 			</tr>
 			<?php
 		}
- 	}
+	}
+
+	public function updateBew() {
+  
+		$id  = trim($_POST["id"]);
+	
+		$checked = trim($_POST["checked"]);
+	
+		var_dump($id);
+	}
  
 	public function paging($query,$records_per_page) {
 		$starting_position=0;

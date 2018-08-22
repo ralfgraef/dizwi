@@ -54,20 +54,6 @@ include_once 'dbconfig.php';
 							$newquery = $user->paging($query,$records_per_page);
 							$user->dataview($newquery);
 							 
-							
-
-							// $query = $DB_con->query('SELECT * FROM daten');
-							// while($r = $query->fetch(PDO::FETCH_OBJ)) {
-							//     if ($r->checked == 0) {
-							//       $r->checked = 'nein';
-							//     } else {
-							//       $r->checked = 'ja';
-							//     }
-									
-							//     echo "<tr><td>$r->id</td><td>$r->title</a></td>"
-							//         . "<td>$r->hash</td>" . "<td>$r->url</td>" . "<td>$r->timestamp</td>" . "<td>$r->checked</td>" ;
-							// }
-							
 							?>
 							</tbody>
 						</table> 
@@ -76,12 +62,35 @@ include_once 'dbconfig.php';
 				</div>
 			</div>
 
-			<!-- <script>
-				function updateDiv()
-				{
-							$('#upload').load('queryundaction.php');
-				}
-				window.setInterval("updateDiv()", (2000));
-			</script> -->
+
+			<script>
+				$(document).ready(function() {
+					
+					$('input').on('click', function() {
+							console.log('ID: ', $(this).attr('id')); 
+							console.log('Checked: ', $(this)[0].checked );
+						});   
+
+					var id= $(this).attr('id');
+					var checked = $(this)[0].checked;
+					var url = 'class.user.php?action=updateBew';
+
+					$.ajax( {
+						url: url 
+						{id:id, checked: checked})
+               .done(function( data ) {
+								if(data > 0){
+
+								console.log('Done!!!');
+
+								} else {
+									console.log('???')
+
+								};
+							});
+				});		
+			</script>
+
+		
 	</body>
 </html>
