@@ -115,7 +115,7 @@ class USER {
         <td>
 			
 					<?php
-					$id = 'bew'.$row['id'];
+					$id = $row['id'];
 					?>
 					<label class="switch">
 						<input type="checkbox" class="my_checkbox" name="testbox" <?php echo ($row['bewertung']==1 ? 'checked' : ''); echo ' id='.$id ?> >
@@ -144,15 +144,27 @@ class USER {
 		}
 	}
 
-	public function updateBew() {
-  
-		$id  = trim($_POST["id"]);
-	
-		$checked = trim($_POST["checked"]);
-	
-		var_dump($id);
-	}
- 
+  public function update(){
+    $id = ($_POST["id"]);
+    if (($_POST["checked"])=='true') {
+      $bew = '1';
+    } else {
+      $bew = '0';
+    }
+
+    $data = [
+      'bewertung' => $bew,
+      'id' => $id,
+    ];
+    
+    $sql = "UPDATE daten SET bewertung=:bewertung WHERE id=:id";
+    $stmt = $this->db->prepare($sql);
+    $stmt->execute($data);
+    
+    var_dump ($id);
+    var_dump ($bew);
+  }
+
 	public function paging($query,$records_per_page) {
 		$starting_position=0;
 		if(isset($_GET["page_no"])) {

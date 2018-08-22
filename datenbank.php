@@ -63,32 +63,27 @@ include_once 'dbconfig.php';
 			</div>
 
 
-			<script>
-				$(document).ready(function() {
-					
-					$('input').on('click', function() {
+			<script>		
+					$('#1').on('click', function() {
 							console.log('ID: ', $(this).attr('id')); 
 							console.log('Checked: ', $(this)[0].checked );
-						});   
-
+						
 					var id= $(this).attr('id');
-					var checked = $(this)[0].checked;
-					var url = 'class.user.php?action=updateBew';
+          var checked = $(this)[0].checked;
+          var values = $(this).serialize();
+          
+					var url = 'checkbox.php';
 
-					$.ajax( {
-						url: url 
-						{id:id, checked: checked})
-               .done(function( data ) {
-								if(data > 0){
-
-								console.log('Done!!!');
-
-								} else {
-									console.log('???')
-
-								};
-							});
-				});		
+				
+          $.ajax({
+            type: "POST",
+            url: 'checkbox.php',
+            data: {id: id, checked: checked},
+            success: function(data){
+                alert(data);
+            }
+          });
+        });
 			</script>
 
 		
