@@ -1,5 +1,5 @@
 <?php
-require_once 'dbconfig.php';
+require_once 'includes/dbconfig.php';
 
 if($_SESSION['user_session']!="")
 {

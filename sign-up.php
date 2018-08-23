@@ -1,6 +1,6 @@
 <?php
 
-require_once 'dbconfig.php';
+require_once 'includes/dbconfig.php';
 
 if($user->is_loggedin()!="")
 {

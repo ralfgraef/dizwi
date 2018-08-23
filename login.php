@@ -1,5 +1,5 @@
 <?php
-require_once 'dbconfig.php';
+require_once 'includes/dbconfig.php';
 
 if($user->is_loggedin()!="")
 {
@@ -27,7 +27,7 @@ if(isset($_POST['btn-login']))
 <!DOCTYPE html>
 <html lang ="en">
   <?php
-    include_once 'header.php';
+    include_once 'includes/header.php';
   ?>
 
 <body class = "titel2">

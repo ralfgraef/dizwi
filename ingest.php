@@ -2,12 +2,12 @@
 <html lang ="en">
 	
 	<?php
-		include_once 'header.php';
+		include_once 'includes/header.php';
 	?>
 
 	<body class = "titel2">
 		<?php
-			include_once 'navbar.php';
+			include_once 'includes/navbar.php';
 		?>	
 		<br>
 		
@@ -25,7 +25,7 @@
 						<h3 class="player">Dateiupload:</h3> 
 						<br>
 						<?php
-							include_once 'upload.php';
+							include_once 'includes/upload.php';
 						?>
 					</div> <!-- /.titel col-md-6 -->
 

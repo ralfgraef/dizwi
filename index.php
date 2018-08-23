@@ -3,17 +3,17 @@
 	
 	
 	<?php
-		include_once 'header.php';
+		include_once 'includes/header.php';
 	?>
 
 	<?php
-		include_once 'dbconfig.php';
+		include_once 'includes/dbconfig.php';
 	?>
 
 	<body class = "bg_titel">
 		
 		<?php
-		include_once 'menue.php';
+		include_once 'includes/menue.php';
 		?>
 		<br>
 		<br>

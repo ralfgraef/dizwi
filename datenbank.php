@@ -1,5 +1,5 @@
 <?php
-include_once 'dbconfig.php';
+include_once 'includes/dbconfig.php';
 	if(!$user->is_loggedin())
 	{
 	  $user->redirect('start.php');
@@ -14,13 +14,13 @@ include_once 'dbconfig.php';
 <html lang ="en">
 	
 	<?php
-		include_once 'header.php';
+		include_once 'includes/header.php';
 	?>
 
 	<body class="titel2">
   
 		<?php
-			include_once 'navbar.php';
+			include_once 'includes/navbar.php';
 		?>	
 		<br>
 			<div class = "container">
