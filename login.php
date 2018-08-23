@@ -14,7 +14,7 @@ if(isset($_POST['btn-login']))
   
  if($user->login($uname,$umail,$upass))
  {
-  $user->redirect('index.php');
+  $user->redirect('start.php');
  }
  else
  {
@@ -30,7 +30,7 @@ if(isset($_POST['btn-login']))
     include_once 'header.php';
   ?>
 
-<body class="bg">
+<body class = "titel2">
 <?php
     //include_once 'menue.php';
 ?>
@@ -70,19 +70,6 @@ if(isset($_POST['btn-login']))
             
         </form>
        </div>
-<!-- <script>
-$(document).ready(function(){
-    $('[data-toggle="tooltip"]').tooltip(); 
-}); -->
-</script> 
-<!-- <script>
-  $(document).ready(function(){
-    $(".iframe").colorbox({iframe:true, innerWidth:980, innerHeight:900});  
-    $("#click").click(function(){ 
-      $('#click').css({"background-color":"#f00", "color":"#fff", "cursor":"inherit"}).text("Open this window again and this message will still be here.");
-      return false;
-      });
-  });
-</script> -->
+
 </body>
 </html>

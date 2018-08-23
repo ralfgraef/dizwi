@@ -24,7 +24,7 @@ include_once 'dbconfig.php';
   <div class="container">
   <div class="collapse navbar-collapse" id="navbarNavDropdown">
     <ul class="navbar-nav">
-      <li class="nav-item <?=echoActiveClassIfRequestMatches("index")?>"><a class="nav-link" href="index.php">Home</a></li>
+      <li class="nav-item <?=echoActiveClassIfRequestMatches("start")?>"><a class="nav-link" href="start.php">Home</a></li>
       <li class="nav-item <?=echoActiveClassIfRequestMatches("ingest")?>"><a class="nav-link" href="ingest.php">Ingest</a></li>
       <li class="nav-item <?=echoActiveClassIfRequestMatches("datenbank")?>"><a class="nav-link" href="datenbank.php">Datenbank</a></li>
     </ul>

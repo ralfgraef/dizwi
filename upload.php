@@ -23,7 +23,7 @@ include_once 'dbconfig.php';
 
 	<label for="Ordner">... oder neuen Speicherort erstellen:</label>
 	<br>
-	<input name="Ordner" id = "Ordner" class="form-control" type="text">
+	<input name="Ordner" id = "Ordner" class="form-control" type="text" placeholder="Bitte Muster beachten...">
    
 	<br>
 

@@ -2,7 +2,7 @@
 include_once 'dbconfig.php';
 	if(!$user->is_loggedin())
 	{
-	  $user->redirect('login.php');
+	  $user->redirect('start.php');
 	}
 	$user_id = $_SESSION['user_session'];
 	$stmt = $DB_con->prepare("SELECT * FROM users WHERE user_id=:user_id");
@@ -64,20 +64,41 @@ include_once 'dbconfig.php';
 
 
 			<script>		
-					$('#1').on('click', function() {
-							console.log('ID: ', $(this).attr('id')); 
-							console.log('Checked: ', $(this)[0].checked );
+					$('.my_checkbew').on('click', function() {
+							console.log('ID_BEW: ', $(this).attr('id')); 
+							console.log('Checked_BEW: ', $(this)[0].checked );
 						
 					var id= $(this).attr('id');
           var checked = $(this)[0].checked;
-          var values = $(this).serialize();
           
-					var url = 'checkbox.php';
+					var url = 'checkbew.php';
 
 				
           $.ajax({
             type: "POST",
-            url: 'checkbox.php',
+            url: url,
+            data: {id: id, checked: checked},
+            success: function(data){
+                alert(data);
+            }
+          });
+        });
+			</script>
+
+			<script>		
+					$('.my_checkdlza').on('click', function() {
+							console.log('ID_DLZA: ', $(this).attr('id')); 
+							console.log('Checked_DLZA: ', $(this)[0].checked );
+						
+					var id= $(this).attr('id');
+          var checked = $(this)[0].checked;
+          
+					var url = 'checkdlza.php';
+
+				
+          $.ajax({
+            type: "POST",
+            url: url,
             data: {id: id, checked: checked},
             success: function(data){
                 alert(data);

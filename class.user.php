@@ -118,19 +118,22 @@ class USER {
 					$id = $row['id'];
 					?>
 					<label class="switch">
-						<input type="checkbox" class="my_checkbox" name="testbox" <?php echo ($row['bewertung']==1 ? 'checked' : ''); echo ' id='.$id ?> >
+						<input type="checkbox" class="my_checkbew" name="bewcheckbox" <?php echo ($row['bewertung']==1 ? 'checked' : ''); echo ' id='.$id ?> >
 						<span class="slider"></span>
 					</label>
-					
-					
-
-				<?php 
-				// if ($_POST['action'] == 'update') {
-				// 	var_dump($_POST['action']);
-				// }
-				?>
+				
 				</td>
-				<td><?php echo $row['checked']; ?></td>
+				<td>
+
+					<?php
+					$id = $row['id'];
+					?>
+					<label class="switch">
+						<input type="checkbox" class="my_checkdlza" name="dlzacheckbox" <?php echo ($row['checked']==1 ? 'checked' : ''); echo ' id='.$id ?> >
+						<span class="slider"></span>
+					</label>
+				
+				</td>
 				</tr>
 				<?php
 			}
@@ -163,6 +166,29 @@ class USER {
     
     var_dump ($id);
     var_dump ($bew);
+	}
+	
+	public function updateDLZA(){
+    $id = ($_POST["id"]);
+    if (($_POST["checked"])=='true') {
+      $dlza = '1';
+    } else {
+      $dlza = '0';
+    }
+
+    $data = [
+      'checked' => $dlza,
+      'id' => $id,
+    ];
+    
+    $sql = "UPDATE daten SET checked=:checked WHERE id=:id";
+    $stmt = $this->db->prepare($sql);
+    $stmt->execute($data);
+		
+		echo 'HUHU, hier updateDLZA';
+		echo '<br />';
+    var_dump ($dlza);
+    var_dump ($id);
   }
 
 	public function paging($query,$records_per_page) {
