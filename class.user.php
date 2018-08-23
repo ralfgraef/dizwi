@@ -164,8 +164,15 @@ class USER {
     $stmt = $this->db->prepare($sql);
     $stmt->execute($data);
     
-    var_dump ($id);
-    var_dump ($bew);
+    if ($bew == '1') {
+      $text = 'Die Bewertung ist als abgeschlossen gekennzeichnet worden.';
+      $icon = 'success';
+    } else {
+      $text = 'Die Bewertungsphase ist erneut gestartet worden.';
+      $icon = 'info';
+    }
+    
+    echo json_encode(array("text"=>$text, "icon"=>$icon));
 	}
 	
 	public function updateDLZA(){
@@ -185,10 +192,15 @@ class USER {
     $stmt = $this->db->prepare($sql);
     $stmt->execute($data);
 		
-		echo 'HUHU, hier updateDLZA';
-		echo '<br />';
-    var_dump ($dlza);
-    var_dump ($id);
+    if ($dlza == '1') {
+      $text = 'Der Weg ist frei fürs Repository.';
+      $icon = 'success';
+    } else {
+      $text = 'Alles zurück, noch nicht ins Repository.';
+      $icon = 'info';
+    }
+    
+    echo json_encode(array("text"=>$text, "icon"=>$icon));
   }
 
 	public function paging($query,$records_per_page) {

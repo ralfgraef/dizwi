@@ -73,10 +73,20 @@ $('.my_checkbew').on('click', function() {
 
 	$.ajax({
 		type: "POST",
-		url: url,
+    url: url,
+    dataType:'JSON',
 		data: {id: id, checked: checked},
-		success: function(data){
-				alert(data);
+		success: function(response){
+      console.log(response.text);
+      console.log(response.icon);
+      swal({
+      title: "Bewertung",
+      text: response.text,
+      icon: response.icon,
+      button: "OK!",
+      focusConfirm: false,
+      showCloseButton: true
+    })
 		}
 	});
 });
@@ -95,10 +105,18 @@ $('.my_checkdlza').on('click', function() {
 
 	$.ajax({
 		type: "POST",
-		url: url,
+    url: url,
+    dataType:'JSON',
 		data: {id: id, checked: checked},
-		success: function(data){
-				alert(data);
+		success: function(response){
+			swal({
+      title: "DLZA",
+      text: response.text,
+      icon: response.icon,
+      button: "OK!",
+      focusConfirm: false,
+      showCloseButton: true
+    })
 		}
 	});
 });
